@@ -108,7 +108,6 @@
                     console.log("Player chose scissors");
                     return "scissors";
             }
-            console.log(`Invalid choice c ${hChoice}`)
         }
 
         let humanScore = 0;
@@ -125,13 +124,15 @@
             let comb1 = humanChoice == "paper" && computerChoice =="rock";
             let comb2 = humanChoice == "rock" && computerChoice =="scissors";
             let comb3 = humanChoice == "scissors" && computerChoice =="paper";
-            if (humanChoice == computerChoice) {
+            if (!humanChoice) {
+                console.log("Invalid choice. Refresh to play")
+            } else if (humanChoice == computerChoice) {
                 console.log(`Computer chose ${computerChoice} too. it's a draw!`)
             } else if (comb1 || comb2 || comb3) {
                 console.log(`Computer chose ${computerChoice}. Player wins!`)
                 ++humanScore;
             } else {
-                console.log("Computer chose ${computerChoice}. Computer wins! Good luck next time");
+                console.log(`Computer chose ${computerChoice}. Computer wins! Good luck next time`);
                 ++computerScore;
             }
         }
