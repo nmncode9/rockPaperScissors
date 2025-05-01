@@ -93,44 +93,45 @@
         // checking for hChoice in an array with .includes()
         // In this example I decided to only use concepts and
         // constructs covered so far in The Odin Project   
+        let hChoice = "";
         function getHumanChoice() {
-            let hChoice = "";
             hChoice = prompt("Choose rock, paper or scissors");
-            hChoice ? hChoice = () => {
-                hChoice = hChoice.toLowerCase()
-                switch(hChoice){   
-                    case "rock": 
-                        console.log("Player chose rock");         
-                        return "rock";
-                    case "paper":
-                        console.log("Player chose paper");
-                        return "paper";
-                    case "scissors":
-                        console.log("Player chose scissors");
-                        return "scissors";
-                }
-
-            } : alert("Invalid choice");
-                console.log("Invalid choice.");  
+            hChoice = hChoice.toLowerCase()
+            switch(hChoice){   
+                case "rock": 
+                    console.log("Player chose rock");         
+                    return "rock";
+                case "paper":
+                    console.log("Player chose paper");
+                    return "paper";
+                case "scissors":
+                    console.log("Player chose scissors");
+                    return "scissors";
+            }
+            console.log(`Invalid choice c ${hChoice}`)
         }
 
-        let humanScore, computerScore = 0;
+        let humanScore = 0;
+        let computerScore = 0;
 
-        function playRound (humanChoice, computerChoice) {
-            humanChoice = getHumanChoice();
-            computerChoice = getComputerChoice();
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice();
+
+        function playRound () {
             // A win table would be preferable in this case for scalability,
             // but for the scope of this assignment this will do.
+
             let comb1 = humanChoice == "paper" && computerChoice =="rock";
-            let comb2 = humanChoice == "rock" && computerChoice =="cissors";
-            let comb3 = humanChoice == "cissors" && computerChoice =="paper";
+            let comb2 = humanChoice == "rock" && computerChoice =="scissors";
+            let comb3 = humanChoice == "scissors" && computerChoice =="paper";
             if (humanChoice == computerChoice) {
-                console.log("it's a draw!")
-            } else if (com1 || comb2 || comb3) {
-                console.log("Player wins!")
+                console.log(`Computer chose ${computerChoice} too. it's a draw!`)
+            } else if (comb1 || comb2 || comb3) {
+                console.log(`Computer chose ${computerChoice}. Player wins!`)
                 ++humanScore;
             } else {
-                
+                console.log("Computer chose ${computerChoice}. Computer wins! Good luck next time");
+                ++computerScore;
             }
         }
 
