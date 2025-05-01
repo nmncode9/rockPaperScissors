@@ -114,8 +114,9 @@
         let humanScore = 0;
         let computerScore = 0;
 
-        humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
+        humanChoice = getHumanChoice();
+        playRound(); 
 
         function playRound () {
             // A win table would be preferable in this case for scalability,
