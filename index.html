@@ -96,8 +96,10 @@
         let hChoice = "";
         function getHumanChoice() {
             hChoice = prompt("Choose rock, paper or scissors");
-            hChoice = hChoice.toLowerCase()
-            switch(hChoice){   
+            hChoice ? hChoice = hChoice.toLowerCase() : console.log("You did not choose")
+            switch(hChoice){ 
+                case null:
+                    return;
                 case "rock": 
                     console.log("Player chose rock");         
                     return "rock";
@@ -124,8 +126,8 @@
             let comb1 = humanChoice == "paper" && computerChoice =="rock";
             let comb2 = humanChoice == "rock" && computerChoice =="scissors";
             let comb3 = humanChoice == "scissors" && computerChoice =="paper";
-            if (!humanChoice) {
-                console.log("Invalid choice. Refresh to play")
+            if (!humanChoice || humanChoice == null) {
+                console.log("Refresh to play.")
             } else if (humanChoice == computerChoice) {
                 console.log(`Computer chose ${computerChoice} too. it's a draw!`)
             } else if (comb1 || comb2 || comb3) {
