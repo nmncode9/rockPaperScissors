@@ -25,6 +25,58 @@
     </div>
     <script>
 
+        
+// Rock paper scissors solution description
+//   The user will play against the computer in the Browser console. The user will be able to choose from rock, paper and cissors. The computer then chooses randomly from R/P/C. A comparison is made, then the winner is announced. If it is a draw, announce it
+// The rules for the comparison are: 
+// P > R 
+// R > C
+// C > P
+// We cannot assign each (p/r/c) a number and compare with <> because each one is vulnerable against at least one of the choices and advantaged against another. Let me think of making all the scores into boolean operations
+// create combs where comb checks the combination and returns true/false
+// what are combs anyway? a boolean variable. What does it compare? 
+
+
+// comb 2 = choice == "paper" && randChoice =="cissors"
+// comb 3 = choice == "paper" && randChoice =="rock" // in this combinations the user loses 
+
+
+// comb 5 = choice == "rock" && randChoice =="cissors"
+// comb 6 = choice == "rock" && randChoice =="paper"
+
+
+// comb 8 = choice == "cissors" && randChoice =="paper"
+// comb 9 = choice == "cissors" && randChoice =="rock" 
+
+// Let's only check for winning combinations:
+
+// comb 2 = choice == "paper" && randChoice =="cissors" 
+// comb 5 = choice == "rock" && randChoice =="cissors".
+// comb 8 = choice == "cissors" && randChoice =="paper"
+
+// this way we can write if (comb2 OR comb5 OR comb8) and if either returns true, the player won. if the computer and the user make the same choice, it's a draw. In all the remaining cases, the computer wins.
+
+// Ask the user to choose from R/P/C
+// Store user choice in var choice
+// Randomly select from R/P/C
+// Store the randomly selected in var randChoice
+// Compare choice with randChoice
+//   if choice equals randChoice, it's a draw
+//   if any of the winning combinations is true, player wins and game ends
+//   In all the remaining cases, the computer wins.
+
+// getComputerChoice:
+// choice = ["rock", "paper", "scissors"]
+// i = random(3)
+// return choice[i]
+
+        function random(n) {
+            n = Number(n);
+            n = Math.floor(Math.random()*n);
+            return n;
+        }
+
+
     </script>
 </body>
 </html>
