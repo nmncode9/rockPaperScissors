@@ -115,17 +115,17 @@
         let humanScore = 0;
         let computerScore = 0;
 
-        computerChoice = getComputerChoice();
-        humanChoice = getHumanChoice();
-        playRound(); 
-
-        function playRound () {
+        const computerChoice = getComputerChoice();
+        const humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice); 
+        
+        function playRound (humanChoice, computerChoice) {
             // A win table would be preferable in this case for scalability,
             // but for the scope of this assignment this will do.
-
-            let comb1 = humanChoice == "paper" && computerChoice =="rock";
-            let comb2 = humanChoice == "rock" && computerChoice =="scissors";
-            let comb3 = humanChoice == "scissors" && computerChoice =="paper";
+            
+            const comb1 = humanChoice == "paper" && computerChoice =="rock";
+            const comb2 = humanChoice == "rock" && computerChoice =="scissors";
+            const comb3 = humanChoice == "scissors" && computerChoice =="paper";
             if (!humanChoice || humanChoice == null) {
                 console.log("Refresh to play.")
             } else if (humanChoice == computerChoice) {
