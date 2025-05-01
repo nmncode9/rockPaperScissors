@@ -76,6 +76,19 @@
             return n;
         }
 
+        // The Odin Project actually says not to use arrays, so we use switch instead 
+        function getComputerChoice() {
+            let choice = random(3);
+            switch(choice) {
+                case 0:
+                    return "rock";
+                case 1:
+                    return "paper";
+                case 2:
+                    return "scissors"
+            }
+        }
+
 
     </script>
 </body>
