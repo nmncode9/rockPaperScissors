@@ -89,6 +89,30 @@
             }
         }
 
+        function getHumanChoice() {
+            let hChoice = "";
+            hChoice = prompt("Choose rock, paper or scissors");
+            if (hChoice === null) {
+                alert("You didn't choose!");
+                console.log("Player didn't choose");        
+            } else if (hChoice.toLowerCase() === "rock") { // The handling would be better done with
+                console.log("Player chose rock");          // checking for hChoice in an array with .includes()
+                return "rock";
+            } else if (hChoice.toLowerCase() === "paper") {
+                console.log("Player chose paper");
+                return "paper";
+            } else if (hChoice.toLowerCase() === "scissors") {
+                console.log("Player chose scissors");
+                return "scissors";
+            } else {
+                alert("Invalid choice");
+                console.log("Invalid choice.");
+            }
+
+            
+
+        }
+
 
     </script>
 </body>
