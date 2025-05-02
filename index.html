@@ -101,7 +101,7 @@
             // The following condition does that well before evaluating the user choice
             if (!hChoice) {
                 console.log("You did not choose.");
-                return;
+                return null;
             }
             switch(hChoice.toLowerCase()){ 
                 // no need for case null 
@@ -114,6 +114,9 @@
                 case "scissors":
                     console.log("Player chose scissors");
                     return "scissors";
+                default:
+                    console.log("Invalid choice")
+                    return null; 
             }
         }
 
