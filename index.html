@@ -134,14 +134,18 @@
                 // but for the scope of this assignment this will do.
                  
                 
-                const comb1 = humanChoice == "paper" && computerChoice =="rock";
-                const comb2 = humanChoice == "rock" && computerChoice =="scissors";
-                const comb3 = humanChoice == "scissors" && computerChoice =="paper";
-                if (!humanChoice || humanChoice == null) {
-                    // console.log("Refresh to play.")
-                } else if (humanChoice == computerChoice) {
+                const playerWins = (humanChoice == "paper" && computerChoice =="rock") ||
+                                   (humanChoice == "rock" && computerChoice =="scissors") || 
+                                   (humanChoice == "scissors" && computerChoice =="paper");
+
+                if (!humanChoice) return;
+                
+                if (humanChoice == computerChoice) {
                     console.log(`Computer chose ${computerChoice} too. it's a draw!`)
-                } else if (comb1 || comb2 || comb3) {
+                    return;
+                }
+                
+                if (playerWins) {
                     console.log(`Computer chose ${computerChoice}. Player wins!`)
                     ++humanScore;
                 } else {
