@@ -96,10 +96,15 @@
         
         function getHumanChoice() {
             hChoice = prompt("Choose rock, paper or scissors");
-            hChoice ? hChoice = hChoice.toLowerCase() : console.log("You did not choose")
-            switch(hChoice){ 
-                // case null:
-                //     return;
+            // hChoice ? hChoice = hChoice.toLowerCase() : console.log("You did not choose");
+            // checking if user sent empty string "" or clicked cancel (null)
+            // The following condition does that well before evaluating the user choice
+            if (!hChoice) {
+                console.log("You did not choose.");
+                return;
+            }
+            switch(hChoice.toLowerCase()){ 
+                // no need for case null 
                 case "rock": 
                     console.log("Player chose rock");         
                     return "rock";
@@ -128,7 +133,7 @@
                 const comb2 = humanChoice == "rock" && computerChoice =="scissors";
                 const comb3 = humanChoice == "scissors" && computerChoice =="paper";
                 if (!humanChoice || humanChoice == null) {
-                    console.log("Refresh to play.")
+                    // console.log("Refresh to play.")
                 } else if (humanChoice == computerChoice) {
                     console.log(`Computer chose ${computerChoice} too. it's a draw!`)
                 } else if (comb1 || comb2 || comb3) {
