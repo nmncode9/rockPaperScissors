@@ -98,8 +98,8 @@
             hChoice = prompt("Choose rock, paper or scissors");
             hChoice ? hChoice = hChoice.toLowerCase() : console.log("You did not choose")
             switch(hChoice){ 
-                case null:
-                    return;
+                // case null:
+                //     return;
                 case "rock": 
                     console.log("Player chose rock");         
                     return "rock";
@@ -152,10 +152,9 @@
                 playRound (humanChoice, computerChoice);
                 scoreSum = humanScore + computerScore
                 console.log(`Score: Computer ${computerScore} - Player ${humanScore}`)
-                console.log(`sum of the score is ${scoreSum}`);
             } 
             computerScore > humanScore ? console.log(`End of the game. Computer wins`) : 
-            console.log(`End of the game. Player wins`)
+            console.log(`End of the game. Player wins`);
         }
 
     </script>
