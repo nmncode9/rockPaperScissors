@@ -112,35 +112,51 @@
             }
         }
 
-        let humanScore = 0;
-        let computerScore = 0;
-
-        const computerChoice = getComputerChoice();
-        const humanChoice = getHumanChoice();
-        playRound(humanChoice, computerChoice); 
         
-        function playRound (humanChoice, computerChoice) {
-            // A win table would be preferable in this case for scalability,
-            // but for the scope of this assignment this will do.
-            
-            const comb1 = humanChoice == "paper" && computerChoice =="rock";
-            const comb2 = humanChoice == "rock" && computerChoice =="scissors";
-            const comb3 = humanChoice == "scissors" && computerChoice =="paper";
-            if (!humanChoice || humanChoice == null) {
-                console.log("Refresh to play.")
-            } else if (humanChoice == computerChoice) {
-                console.log(`Computer chose ${computerChoice} too. it's a draw!`)
-            } else if (comb1 || comb2 || comb3) {
-                console.log(`Computer chose ${computerChoice}. Player wins!`)
-                ++humanScore;
-            } else {
-                console.log(`Computer chose ${computerChoice}. Computer wins! Good luck next time`);
-                ++computerScore;
+        
+        function playGame(){
+            let humanScore = 0;
+            let computerScore = 0;
+            let computerChoice;
+            let humanChoice;
+            function playRound (humanChoice, computerChoice) {
+                // A win table would be preferable in this case for scalability,
+                // but for the scope of this assignment this will do.
+                 
+                
+                const comb1 = humanChoice == "paper" && computerChoice =="rock";
+                const comb2 = humanChoice == "rock" && computerChoice =="scissors";
+                const comb3 = humanChoice == "scissors" && computerChoice =="paper";
+                if (!humanChoice || humanChoice == null) {
+                    console.log("Refresh to play.")
+                } else if (humanChoice == computerChoice) {
+                    console.log(`Computer chose ${computerChoice} too. it's a draw!`)
+                } else if (comb1 || comb2 || comb3) {
+                    console.log(`Computer chose ${computerChoice}. Player wins!`)
+                    ++humanScore;
+                } else {
+                    console.log(`Computer chose ${computerChoice}. Computer wins! Good luck next time`);
+                    ++computerScore;
+                }
             }
+            // The game should play for 5 rounds. it should not take draws into account
+            // so that there can only be one winner after the 5 rounds. The purpose of the
+            // game is to have a loser and a winner in order to take a decision.
+            // To do so, we can run a for loop 5 times and decrement the sentry (i)
+            // in case of draws, or we can run a loop that doesn't stop until the sum
+            // of the scores is exactly 5.
+            let scoreSum = 0;
+            while (scoreSum < 5) {
+                computerChoice = getComputerChoice();
+                humanChoice = getHumanChoice();
+                playRound (humanChoice, computerChoice);
+                scoreSum = humanScore + computerScore
+                console.log(`Score: Computer ${computerScore} - Player ${humanScore}`)
+                console.log(`sum of the score is ${scoreSum}`);
+            } 
+            computerScore > humanScore ? console.log(`End of the game. Computer wins`) : 
+            console.log(`End of the game. Player wins`)
         }
-        // comment for test
-        
-
 
     </script>
 </body>
