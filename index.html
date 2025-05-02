@@ -103,19 +103,18 @@
                 console.log("You did not choose. Enter 'quit' to exit.");
                 return null;
             }
-            switch(hChoice.toLowerCase()){ 
+
+            hChoice = hChoice.toLowerCase();
+
+            switch(hChoice){ 
                 // no need for case null 
                 case "quit": 
                     return "quit";
                 case "rock": 
-                    console.log("Player chose rock");         
-                    return "rock";
                 case "paper":
-                    console.log("Player chose paper");
-                    return "paper";
                 case "scissors":
-                    console.log("Player chose scissors");
-                    return "scissors";
+                    console.log(`Player chose ${hChoice}`);
+                    return hChoice;
                 default:
                     console.log("Invalid choice. Enter 'quit' to exit.")
                     return null; 
