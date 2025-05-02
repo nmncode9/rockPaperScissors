@@ -95,16 +95,18 @@
         // constructs covered so far in The Odin Project   
         
         function getHumanChoice() {
-            hChoice = prompt("Choose rock, paper or scissors");
+            hChoice = prompt("Choose rock, paper or scissors. Enter 'quit' to exit.");
             // hChoice ? hChoice = hChoice.toLowerCase() : console.log("You did not choose");
             // checking if user sent empty string "" or clicked cancel (null)
             // The following condition does that well before evaluating the user choice
             if (!hChoice) {
-                console.log("You did not choose.");
+                console.log("You did not choose. Enter 'quit' to exit.");
                 return null;
             }
             switch(hChoice.toLowerCase()){ 
                 // no need for case null 
+                case "quit": 
+                    return "quit";
                 case "rock": 
                     console.log("Player chose rock");         
                     return "rock";
@@ -115,7 +117,7 @@
                     console.log("Player chose scissors");
                     return "scissors";
                 default:
-                    console.log("Invalid choice")
+                    console.log("Invalid choice. Enter 'quit' to exit.")
                     return null; 
             }
         }
@@ -154,15 +156,21 @@
             // in case of draws, or we can run a loop that doesn't stop until the sum
             // of the scores is exactly 5.
             let scoreSum = 0;
+            
             while (scoreSum < 5) {
                 computerChoice = getComputerChoice();
                 humanChoice = getHumanChoice();
+                if (humanChoice == "quit") {
+                    console.log("Player quit.")
+                    return;
+                }
                 playRound (humanChoice, computerChoice);
                 scoreSum = humanScore + computerScore
                 console.log(`Score: Computer ${computerScore} - Player ${humanScore}`)
             } 
             computerScore > humanScore ? console.log(`End of the game. Computer wins`) : 
             console.log(`End of the game. Player wins`);
+            
         }
 
     </script>
