@@ -174,7 +174,20 @@
             computerScore > humanScore ? console.log(`End of the game. Computer wins`) : 
             console.log(`End of the game. Player wins`);
             
+            replay();
+            
         }
+
+        function replay() {
+            let playAgain = confirm("Do you want to replay?");
+            if (playAgain) {
+                 playGame()
+             } else {
+                return;
+             }
+        }    
+
+        playGame()
 
     </script>
 </body>
