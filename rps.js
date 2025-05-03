@@ -43,9 +43,7 @@
 // return choice[i]
 
 function random(n) {
-    n = Number(n);
-    n = Math.floor(Math.random()*n);
-    return n;
+    return Math.floor(Math.random()*n);
 }
 
 // The Odin Project actually says not to use arrays, so we use switch instead 
