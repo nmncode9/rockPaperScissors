@@ -153,10 +153,10 @@ function playGame(){
 function replay() {
     let playAgain = confirm("Do you want to replay?");
     if (playAgain) {
-            playGame()
-        } else {
+        playGame()
+    } else {
         return;
-        }
+    }
 }    
 
 playGame()
